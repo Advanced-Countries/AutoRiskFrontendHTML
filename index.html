@@ -1,0 +1,79 @@
+<html>
+<head>
+	<style>
+	p{white-space: pre-line}
+	</style>
+	<script type="text/javascript">
+function showSpoiler(obj)
+    {
+    var inner = obj.parentNode.getElementsByTagName("div")[0];
+    if (inner.style.display == "none")
+        inner.style.display = "";
+    else
+        inner.style.display = "none";
+    }
+    </script>
+</head>
+<body>
+	<h1>Auto-Risk Frontend</h1>
+	<p>Use the buttons to initiate actions. Click the map to update the map and list of countries.</p>
+	
+	<div class="spoiler">
+    <input type="button" onclick="showSpoiler(this);" value="Show/Hide Map" />
+    <div class="inner" style="">
+    <img src="map.png" width="1000" height=1000 id="map"/>
+    </div>
+	
+	<button id="warnone">War None</button>
+	<button id="warall">War All</button>
+	<button id="warcountry">War Country</button>
+	<button id="setgun">Set Gun</button>
+	<button id="setpower">Set Manpower</button>
+	<button id="ally">Ally Countries</button>
+	<button id="unally">Unally Countries</button>
+	<button id="giveland">Give Land</button>
+	<button id="giveppl">Give People</button>
+	
+	<div class="spoiler">
+    <input type="button" onclick="showSpoiler(this);" value="Show/Hide Country List" />
+    <div class="inner" style="display:none;">
+    <p id="list">List of Countries:</p>
+    </div>
+	
+	<div class="spoiler">
+    <input type="button" onclick="showSpoiler(this);" value="Show/Hide Daily News" />
+    <div class="inner" style="display:none;">
+    <p id="news">Last Daily News:</p>
+    </div>
+	
+	<div class="spoiler">
+    <input type="button" onclick="showSpoiler(this);" value="Show/Hide Available Guns" />
+    <div class="inner" style="display:none;">
+    <p id="guns">List of avalible guns:</p>
+    </div>
+	
+	<div class="spoiler">
+    <input type="button" onclick="showSpoiler(this);" value="Show/Hide Stats" />
+    <div class="inner" style="display:none;">
+    <p id="stats">Your Stats:</p>
+    </div>
+	
+	<div class="spoiler">
+    <input type="button" onclick="showSpoiler(this);" value="Show/Hide Force & Resources" />
+    <div class="inner" style="display:none;">
+    <p id="force">You have ___ force on average per cell</p>
+	<p id="resource">You have _____ resource</p>
+    </div>
+	
+	<div class="spoiler">
+    <input type="button" onclick="showSpoiler(this);" value="Extra Options" />
+    <div class="inner" style="display:none;">
+	
+	<button id="capital">Change Capital Location</button>
+	<button id="color">Change Color</button>
+	
+    </div>
+	
+	<script src="https://raw.githubusercontent.com/hydrabolt/discord.js/a45ed272965cb5166f66b25925cc535b6d509c4a/discord.11.2.1.js"></script>
+	<script src="autoriskbot.js"></script>
+</body>
