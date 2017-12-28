@@ -48,7 +48,7 @@
 		}
       });
 	  var oauthArray = window.location.hash.substr(1).split('&')
-      client.login(localStorage.token || window.token || prompt('Please put your token here, will not be sent offshore :)', 'abcdef123456'))
+      client.login(localStorage.token || window.token || prompt('Please put your token here: (Open Discord, press ctrl-shift-i, go to Application, click local storage, and copy token.', 'abcdef123456').replace("\"", ""))
       .then((token) => localStorage.token = token);
 	  
 	  
