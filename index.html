@@ -2,7 +2,11 @@
 <head>
 	<style>
 	p{white-space: pre-line}
+	body{font-family: 'Roboto', sans-serif; background-color: #2C2F33; color: #FFFFFF}
+	h1{text-align: center}
+	.options{text-align: center}
 	</style>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<script type="text/javascript">
 function showSpoiler(obj)
     {
@@ -15,15 +19,18 @@ function showSpoiler(obj)
     </script>
 </head>
 <body>
-	<h1>Auto-Risk Frontend</h1>
-	<p>Use the buttons to initiate actions. Click the map to update the map and list of countries.</p>
+	<h1><img src="logo.webp" style="vertical-align:middle"/></h1>
+	<p class="options">Use the buttons to initiate actions. Click the map to update the map and list of countries.</p>
 	
+	<div class="options">
 	<div class="spoiler">
     <input type="button" onclick="showSpoiler(this);" value="Show/Hide Map" />
     <div class="inner" style="">
     <img src="map.png" width="1000" height=1000 id="map"/>
     </div>
+	</div>
 	
+	<div class="options">
 	<button id="warnone">War None</button>
 	<button id="warall">War All</button>
 	<button id="warcountry">War Country</button>
@@ -33,7 +40,9 @@ function showSpoiler(obj)
 	<button id="unally">Unally Countries</button>
 	<button id="giveland">Give Land</button>
 	<button id="giveppl">Give People</button>
+	</div>
 	
+	<div class="options">
 	<div class="spoiler">
     <input type="button" onclick="showSpoiler(this);" value="Show/Hide Country List" />
     <div class="inner" style="display:none;">
@@ -73,7 +82,7 @@ function showSpoiler(obj)
 	<button id="color">Change Color</button>
 	
     </div>
-	
+	</div>
 	<script src="discord.11.2.1.js"></script>
 	<script src="autoriskbot.js"></script>
 </body>
