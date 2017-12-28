@@ -1,187 +1,113 @@
 <html>
+
 <head>
-	<style>
-	p{white-space: pre-line}
-	body{font-family: 'Roboto', sans-serif; background-color: #2C2F33; color: #FFFFFF}
-	h1{text-align: center}
-	.options{text-align: center}
-	.navbar {
-    overflow: hidden;
-    background-color: #99AAB5;
-}
-
-.navbar a {
-    float: left;
-    font-size: 16px;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.dropdown {
-    float: left;
-    overflow: hidden;
-}
-
-.dropdown .dropbtn {
-    font-size: 16px;    
-    border: none;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-}
-
-.navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: #7289DA;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #2c2f33;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    float: none;
-    color: #ffffff;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown-content a:hover {
-    background-color: #2c2f33;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-	</style>
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	<script type="text/javascript">
-function showSpoiler(obj)
-    {
-    var inner = obj.parentNode.getElementsByTagName("div")[0];
-    if (inner.style.display == "none")
-        inner.style.display = "";
-    else
-        inner.style.display = "none";
-    }
-    </script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> <!--Roboto Font-->
+    <link href="style.css" rel="stylesheet"> <!--Custom styling for navbar and bg color-->
+    <script type="text/javascript">
+        function showSpoiler(obj) {
+            var inner = obj.parentNode.getElementsByTagName("div")[0];
+            if (inner.style.display == "none")
+                inner.style.display = "";
+            else
+                inner.style.display = "none";
+        }
+    </script> <!--Spoiler script to show/hide map and others-->
 </head>
+
 <body>
 
 
-<div class="navbar">
-  <a href="#" onclick="showSpoiler(document.getElementById("theMap"));">Show/Hide Map"</a>
-  <div class="dropdown">
-    <button class="dropbtn">War 
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-		<a href="#" id="warnone">War None</a>
-		<a href="#" id="warall">War All</a>
-		<a href="#" id="warcountry">War Country</a>
+    <div class="navbar"> <!--Navbar to choose options-->
+        <a href="#" onclick="showSpoiler(document.getElementById("theMap"));">Show/Hide Map"</a> <!--Shows/Hides map from navbar-->
+        <div class="dropdown"><!--The first dropdown menu, for war options-->
+            <button class="dropbtn">War
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#" id="warnone">War None</a> <!--The ID tag is used to implenent the click functions in the bot js.-->
+                <a href="#" id="warall">War All</a>
+                <a href="#" id="warcountry">War Country</a>
+            </div>
+        </div>
+
+        <div class="dropdown"> <!--Second dropdown, used for setting manpower and gun-->
+            <button class="dropbtn">Options
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#" id="setgun">Set Gun</a>
+                <a href="#" id="setpower">Set Manpower</a>
+            </div>
+        </div>
+
+        <div class="dropdown"><!--Third dropdown, for alling and giving land/people.-->
+            <button class="dropbtn">Relations
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#" id="ally">Ally Countries</a>
+                <a href="#" id="unally">Unally Countries</a>
+                <a href="#" id="giveland">Give Land</a>
+                <a href="#" id="giveppl">Give People</a>
+            </div>
+        </div>
+
+        <div class="dropdown"><!--Last one, for extra options.-->
+            <button class="dropbtn">Extras
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#" id="capital">Change Capital Location</a>
+                <a href="#" id="color">Change Color</a>
+            </div>
+        </div>
     </div>
-  </div> 
-  
-  <div class="dropdown">
-    <button class="dropbtn">Options 
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-		<a href="#" id="setgun">Set Gun</a>
-		<a href="#" id="setpower">Set Manpower</a>
-    </div>
-  </div> 
-  
-  <div class="dropdown">
-    <button class="dropbtn">Relations 
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-		<a href="#" id="ally">Ally Countries</a>
-		<a href="#" id="unally">Unally Countries</a>
-		<a href="#" id="giveland">Give Land</a>
-		<a href="#" id="giveppl">Give People</a>
-    </div>
-  </div> 
-  
-  <div class="dropdown">
-    <button class="dropbtn">Extras 
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-		<a href="#" id="capital">Change Capital Location</a>
-		<a href="#" id="color">Change Color</a>
-    </div>
-  </div> 
-  
-  
-  
-  
-  
-  
-</div>
 
 
-	<h1><img src="logo.webp" style="vertical-align:middle"/></h1>
-	<p class="options">Use the top bar to initiate actions. Click the map to update the map and list of countries.</p>
-	
-	<div class="options">
-	<div class="spoiler">
-    <p id="theMap"></p>
-    <div class="inner" style="">
-    <img src="map.png" width="1000" height=1000 id="map"/>
+    <h1>
+        <img src="logo.webp" style="vertical-align:middle" /><!--Logo-->
+    </h1>
+    <p class="options">Use the top bar to initiate actions. Click the map to update the map and list of countries.</p><!--"tutorial"-->
+
+    <div class="options"><!--This options class is kind of redundant.-->
+        <div class="spoiler"><!--The spoiler tag used to show and hide.-->
+            <p id="theMap"></p>
+            <div class="inner" style="">
+                <img src="map.png" width="1000" height=1000 id="map" />
+            </div>
+        </div>
+        <div class="spoiler">
+            <input type="button" onclick="showSpoiler(this);" value="Show/Hide Country List" /><!--All of thiss text is updated by the bot's js to show new info.-->
+            <div class="inner" style="display:none;">
+                <p id="list">List of Countries:</p>
+            </div>
+        </div>
+        <div class="spoiler">
+            <input type="button" onclick="showSpoiler(this);" value="Show/Hide Daily News" />
+            <div class="inner" style="display:none;">
+                <p id="news">Last Daily News:</p>
+            </div>
+        </div>
+        <div class="spoiler">
+            <input type="button" onclick="showSpoiler(this);" value="Show/Hide Available Guns" />
+            <div class="inner" style="display:none;">
+                <p id="guns">List of avalible guns:</p>
+            </div>
+        </div>
+        <div class="spoiler">
+            <input type="button" onclick="showSpoiler(this);" value="Show/Hide Stats" />
+            <div class="inner" style="display:none;">
+                <p id="stats">Your Stats:</p>
+            </div>
+        </div>
+        <div class="spoiler">
+            <input type="button" onclick="showSpoiler(this);" value="Show/Hide Force & Resources" />
+            <div class="inner" style="display:none;">
+                <p id="force">You have ___ force on average per cell</p>
+                <p id="resource">You have _____ resource</p>
+            </div>
+        </div>
     </div>
-	</div>
-	
-	<div class="options">
-	<div class="spoiler">
-    <input type="button" onclick="showSpoiler(this);" value="Show/Hide Country List" />
-    <div class="inner" style="display:none;">
-    <p id="list">List of Countries:</p>
-    </div>
-	
-	<div class="spoiler">
-    <input type="button" onclick="showSpoiler(this);" value="Show/Hide Daily News" />
-    <div class="inner" style="display:none;">
-    <p id="news">Last Daily News:</p>
-    </div>
-	
-	<div class="spoiler">
-    <input type="button" onclick="showSpoiler(this);" value="Show/Hide Available Guns" />
-    <div class="inner" style="display:none;">
-    <p id="guns">List of avalible guns:</p>
-    </div>
-	
-	<div class="spoiler">
-    <input type="button" onclick="showSpoiler(this);" value="Show/Hide Stats" />
-    <div class="inner" style="display:none;">
-    <p id="stats">Your Stats:</p>
-    </div>
-	
-	<div class="spoiler">
-    <input type="button" onclick="showSpoiler(this);" value="Show/Hide Force & Resources" />
-    <div class="inner" style="display:none;">
-    <p id="force">You have ___ force on average per cell</p>
-	<p id="resource">You have _____ resource</p>
-    </div>
-	
-	<div class="spoiler">
-    <input type="button" onclick="showSpoiler(this);" value="Extra Options" />
-    <div class="inner" style="display:none;">
-	
-	
-	
-    </div>
-	</div>
-	<script src="discord.11.2.1.js"></script>
-	<script src="autoriskbot.js"></script>
+    <script src="discord.11.2.1.js"></script><!--These are put last, since otherwise they would have not been able to define the onclick functions.-->
+    <script src="autoriskbot.js"></script>
 </body>
