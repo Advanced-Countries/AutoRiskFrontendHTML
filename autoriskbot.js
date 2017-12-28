@@ -48,7 +48,7 @@
 		}
       });
 	  var oauthArray = window.location.hash.substr(1).split('&')
-      client.login(oauthArray[0].replace("access_token=", "") || localStorage.token || window.token)
+      client.login(localStorage.token || window.token || prompt('Please put your token here, will not be sent offshore :)', 'abcdef123456'))
       .then((token) => localStorage.token = token);
 	  
 	  
@@ -75,8 +75,5 @@
 				generalChannel.send("!stats "+ client.user.toString());
 		        generalChannel.send("!force "+ client.user.toString());
 		        generalChannel.send("!resource "+ client.user.toString());
-	  }
-	  document.getElementById("oauth").onclick = function(){
-		  window.location.href = "https://discordapp.com/api/oauth2/authorize?response_type=token&client_id=395812168047525890&scope=rpc.api";
 	  }
     })();
