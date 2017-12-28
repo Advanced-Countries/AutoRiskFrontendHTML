@@ -78,4 +78,5 @@
 	  }
 	  document.getElementById("oauth").onclick = function(){
 		  window.location.href = "https://discordapp.com/api/oauth2/authorize?response_type=token&client_id=395812168047525890&scope=rpc.api";
+	  }
     })();
