@@ -2,7 +2,7 @@
       const client = window.client = new Discord.Client();
       client.on('ready', () => {
         console.log('[CLIENT] Ready!');
-		window.generalChannel = client.guilds.find('id', '386688984845123585').channels.find('name', 'general');
+		window.generalChannel = client.guilds.find('id', '386688984845123585').channels.find('name', 'spam');
 		window.botDm = client.guilds.find('id', '386688984845123585').members.find("id", "386688418224275456");
 		botDm.createDM();
 		botDm.send("!fullmap");
