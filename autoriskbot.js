@@ -65,10 +65,10 @@
 	  document.getElementById("setgun").onclick = function(){generalChannel.send("!setgun " + prompt("Which gun? Remember, setting up removes 10% of your resource! (Gun list at bottom of page)", "AWP, M1, etc.")); setTimeout(function(){generalChannel.send("!stats "+ client.user.toString()); generalChannel.send("!resource "+ client.user.toString()); generalChannel.send("!force "+ client.user.toString());}, 1000);};
 	  document.getElementById("ally").onclick = function(){generalChannel.send("!ally " + prompt("Which country to ally?", "Country Name"));};
 	  document.getElementById("unally").onclick = function(){generalChannel.send("!unally " + prompt("Which country to unally?", "Country Name"));};
-	  document.getElementById("color").onclick = function(){generalChannel.send("!color " + prompt("What color? (RRR GGG BBB)", "RRR GGG BBB"));};
-	  document.getElementById("capital").onclick = function(){generalChannel.send("!movecapital " + prompt("Where to? (X Y)", "X Y"));};
-	  document.getElementById("giveland").onclick = function(){generalChannel.send("!giveland " + prompt("To whom and where? ([country] [x] [y] [size])", "[country] [x] [y] [size]"));};
-	  document.getElementById("giveppl").onclick = function(){generalChannel.send("!givepeople " + prompt("To whom? (country amount)", "[country] [amount]"));};
+	  document.getElementById("color").onclick = function(){generalChannel.send("!color " + prompt("What color? (RRR GGG BBB)", "RRR GGG BBB")); setTimeout(function(){generalChannel.send("!stats "+ client.user.toString()); generalChannel.send("!resource "+ client.user.toString()); generalChannel.send("!force "+ client.user.toString());}, 1000);};
+	  document.getElementById("capital").onclick = function(){generalChannel.send("!movecapital " + prompt("Where to? (X Y)", "X Y")); setTimeout(function(){generalChannel.send("!stats "+ client.user.toString()); generalChannel.send("!resource "+ client.user.toString()); generalChannel.send("!force "+ client.user.toString());}, 1000);};
+	  document.getElementById("giveland").onclick = function(){generalChannel.send("!giveland " + prompt("To whom and where? ([country] [x] [y] [size])", "[country] [x] [y] [size]")); setTimeout(function(){generalChannel.send("!stats "+ client.user.toString()); generalChannel.send("!resource "+ client.user.toString()); generalChannel.send("!force "+ client.user.toString());}, 1000);};
+	  document.getElementById("giveppl").onclick = function(){generalChannel.send("!givepeople " + prompt("To whom? (country amount)", "[country] [amount]")); setTimeout(function(){generalChannel.send("!stats "+ client.user.toString()); generalChannel.send("!resource "+ client.user.toString()); generalChannel.send("!force "+ client.user.toString());}, 1000);};
 	  document.getElementById("map").onclick = function(){botDm.send("!fullmap");
 		        botDm.send("!list");
 				generalChannel.send("!stats "+ client.user.toString());
