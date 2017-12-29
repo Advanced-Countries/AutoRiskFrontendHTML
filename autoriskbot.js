@@ -8,7 +8,7 @@
 		generalChannel.send("!fullmap");//Gets the map, list of countries, and guns available.
 		generalChannel.send("!list")
 		generalChannel.send("!guns");
-		generalChannel.send("!stats";
+		generalChannel.send("!stats");
 		generalChannel.send("!force webInt");
 		generalChannel.send("!resource webInt");
 	});
