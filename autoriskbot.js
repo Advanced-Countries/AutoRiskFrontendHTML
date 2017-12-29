@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */ 
 (() => {
 	const client = window.client = new Discord.Client(); //Makes the discord client.
 	client.on('ready', () => {
@@ -6,7 +7,7 @@
 		window.generalChannel = client.guilds.find('id', '386688984845123585').members.find("id", "386688418224275456"); //Find The Cartographer's user object, and save to generalChannel.
 		window.myId = client.user.id;
 		generalChannel.send("!fullmap"); //Gets the map, list of countries, and guns available.
-		generalChannel.send("!list")
+		generalChannel.send("!list");
 		generalChannel.send("!guns");
 		generalChannel.send("!stats");
 		generalChannel.send("!force webInt");
@@ -103,23 +104,23 @@
 		generalChannel.send("!stats webInt");
 		generalChannel.send("!force webInt");
 		generalChannel.send("!resource webInt");
-	}
+	};
 	document.getElementById("upd8").onclick = function () {
 		var tmp = "";
 		var last5 = client.guilds.find('id', '386688984845123585').channels.find('name', 'general').messages.last(5);
-		for (msg in last5) {
+		for (var msg in last5) {
 			tmp += `[${msg.author.tag}] ${msg.author.content}\n`;
 		}
 		document.getElementById("chatbox").innerHTML = tmp;
-	}
+	};
 	document.getElementById("upd81").onclick = function () {
 		var tmp = "";
 		var last5 = client.guilds.find('id', '386688984845123585').channels.find('name', 'spam').messages.last(5);
-		for (msg in last5) {
+		for (var msg in last5) {
 			tmp += `[${msg.author.tag}] ${msg.author.content}\n`;
 		}
 		document.getElementById("spambox").innerHTML = tmp;
-	}
+	};
 
 	document.getElementById("sendBtn").onclick = function () {
 		var sendTo = client.guilds.find('id', '386688984845123585').channels.find('name', 'general');
@@ -127,12 +128,12 @@
 		setTimeout(function () {
 			var tmp = "";
 			var last5 = client.guilds.find('id', '386688984845123585').channels.find('name', 'general').messages.last(5);
-			for (msg in last5) {
+			for (var msg in last5) {
 				tmp += `[${msg.author.tag}] ${msg.author.content}\n`;
 			}
 			document.getElementById("chatbox").innerHTML = tmp;
 		}, 100);
-	}
+	};
 
 	document.getElementById("sendBtn1").onclick = function () {
 		var sendTo = client.guilds.find('id', '386688984845123585').channels.find('name', 'spam');
@@ -140,10 +141,10 @@
 		setTimeout(function () {
 			var tmp = "";
 			var last5 = client.guilds.find('id', '386688984845123585').channels.find('name', 'spam').messages.last(5);
-			for (msg in last5) {
+			for (var msg in last5) {
 				tmp += `[${msg.author.tag}] ${msg.author.content}\n`;
 			}
 			document.getElementById("spambox").innerHTML = tmp;
 		}, 100);
-	}
+	};
 })();
