@@ -4,7 +4,7 @@
 	client.on('ready', () => {
 		console.log('[CLIENT] Ready!');
 		window.generalChannel = client.guilds.find('id', '386688984845123585').channels.find('name', 'spam'); //Find the #spam channel, and set it to var generalChannel.
-		window.generalChannel = client.guilds.find('id', '386688984845123585').members.find("id", "386688418224275456"); //Find The Cartographer's user object, and save to generalChannel.
+		window.theBot = client.guilds.find('id', '386688984845123585').members.find("id", "386688418224275456"); //Find The Cartographer's user object, and save to generalChannel.
 		window.myId = client.user.id;
 		generalChannel.send("!fullmap"); //Gets the map, list of countries, and guns available.
 		generalChannel.send("!list");
