@@ -1,8 +1,10 @@
 <html>
 
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> <!--Roboto Font-->
-    <link href="style.css" rel="stylesheet"> <!--Custom styling for navbar and bg color-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!--Roboto Font-->
+    <link href="style.css" rel="stylesheet">
+    <!--Custom styling for navbar and bg color-->
     <script type="text/javascript">
         function showSpoiler(obj) {
             var inner = obj.parentNode.getElementsByTagName("div")[0];
@@ -11,26 +13,32 @@
             else
                 inner.style.display = "none";
         }
-    </script> <!--Spoiler script to show/hide map and others-->
+    </script>
+    <!--Spoiler script to show/hide map and others-->
 </head>
 
 <body>
 
 
-    <div class="navbar"> <!--Navbar to choose options-->
-        <a href="#" onclick="showSpoiler(document.getElementById("theMap"));">Show/Hide Map"</a> <!--Shows/Hides map from navbar-->
-        <div class="dropdown"><!--The first dropdown menu, for war options-->
+    <div class="navbar">
+        <!--Navbar to choose options-->
+        <a href="#" onclick="showSpoiler(document.getElementById(" theMap "));">Show/Hide Map"</a>
+        <!--Shows/Hides map from navbar-->
+        <div class="dropdown">
+            <!--The first dropdown menu, for war options-->
             <button class="dropbtn">War
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="#" id="warnone">War None</a> <!--The ID tag is used to implenent the click functions in the bot js.-->
+                <a href="#" id="warnone">War None</a>
+                <!--The ID tag is used to implenent the click functions in the bot js.-->
                 <a href="#" id="warall">War All</a>
                 <a href="#" id="warcountry">War Country</a>
             </div>
         </div>
 
-        <div class="dropdown"> <!--Second dropdown, used for setting manpower and gun-->
+        <div class="dropdown">
+            <!--Second dropdown, used for setting manpower and gun-->
             <button class="dropbtn">Options
                 <i class="fa fa-caret-down"></i>
             </button>
@@ -40,7 +48,8 @@
             </div>
         </div>
 
-        <div class="dropdown"><!--Third dropdown, for alling and giving land/people.-->
+        <div class="dropdown">
+            <!--Third dropdown, for alling and giving land/people.-->
             <button class="dropbtn">Relations
                 <i class="fa fa-caret-down"></i>
             </button>
@@ -52,7 +61,8 @@
             </div>
         </div>
 
-        <div class="dropdown"><!--Last one, for extra options.-->
+        <div class="dropdown">
+            <!--Last one, for extra options.-->
             <button class="dropbtn">Extras
                 <i class="fa fa-caret-down"></i>
             </button>
@@ -65,26 +75,41 @@
 
 
     <h1>
-        <img src="logo.webp" style="vertical-align:middle" /><!--Logo-->
+        <img src="logo.webp" style="vertical-align:middle" />
+        <!--Logo-->
     </h1>
-    <p class="options">Use the top bar to initiate actions. Click the map to update the map and list of countries.</p><!--"tutorial"-->
+    <p class="options">Use the top bar to initiate actions. Click the map to update the map and list of countries.</p>
+    <!--"tutorial"-->
 
-    <div class="options"><!--This options class is kind of redundant.-->
-        <div class="spoiler"><!--The spoiler tag used to show and hide.-->
+    <div class="options">
+        <!--This options class is kind of redundant.-->
+        <div class="spoiler">
+            <!--The spoiler tag used to show and hide.-->
             <p id="theMap"></p>
             <div class="inner" style="">
                 <img src="map.png" width="1000" height=1000 id="map" />
             </div>
         </div>
 
-        <p class="rightfloat">Placehoder
-            for
-            chat
-            <input type="text" style="display: inline;">Chat Here</input><button value="Send"></button>
-        </p>
+        <div class="rightfloat">
+            <div id="chatbox" class="rightfloat" style="height:200px;width:300px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+                Placeholder for chat
+            </div><br>
+            <input type="text" style="display: inline;" value="Chat Here - General ^" id="chatTxt">
+            <button id="sendBtn" style="display: inline;">Send</button>
+            <button id="upd8" style="display: inline;">Upd8 Chat</button>
+            <br>
+            <div id="spambox" class="rightfloat" style="height:200px;width:300px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+                Placeholder for spam
+            </div><br>
+            <input type="text" style="display: inline;" value="Chat Here - Spam ^ " id="chatTxt1">
+            <button id="sendBtn1" style="display: inline;">Send</button>
+            <button id="upd81" style="display: inline;">Upd8 Spam</button>
+        </div>
 
         <div class="spoiler">
-            <input type="button" onclick="showSpoiler(this);" value="Show/Hide Country List" /><!--All of thiss text is updated by the bot's js to show new info.-->
+            <input type="button" onclick="showSpoiler(this);" value="Show/Hide Country List" />
+            <!--All of thiss text is updated by the bot's js to show new info.-->
             <div class="inner" style="display:none;">
                 <p id="list">List of Countries:</p>
             </div>
@@ -115,6 +140,7 @@
             </div>
         </div>
     </div>
-    <script src="discord.11.2.1.js"></script><!--These are put last, since otherwise they would have not been able to define the onclick functions.-->
+    <script src="discord.11.2.1.js"></script>
+    <!--These are put last, since otherwise they would have not been able to define the onclick functions.-->
     <script src="autoriskbot.js"></script>
 </body>
