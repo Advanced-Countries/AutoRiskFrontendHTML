@@ -27,15 +27,15 @@
 				generalChannel.send("!stats");
 				generalChannel.send("!force webInt");
 				generalChannel.send("!resource webInt");
-			} else if (doesContain("guns",message)) {//If it includes the word guns, it is the gun list. Put it in the guns area.
+			} else if (message.content.includes("guns")) {//If it includes the word guns, it is the gun list. Put it in the guns area.
 				document.getElementById("guns").innerHTML = message.content;
-			} else if (doesContain(`${myId}WEBINT_FORCE`, message)) {//If it contains force and your id, it is your force. Put it in the force area.
+			} else if (message.content.includes(`${myId}WEBINT_FORCE`)) {//If it contains force and your id, it is your force. Put it in the force area.
 				document.getElementById("force").innerHTML = message.content.replace(`${myId}WEBINT_FORCE`, "");
-			} else if (doesContain(`${myId}WEBINT_RESOURCE`)) {//If it contains "you mine" and your mention, it is your resources. Put in in the resources ara.
+			} else if (message.content.includes(`${myId}WEBINT_RESOURCE`)) {//If it contains "you mine" and your mention, it is your resources. Put in in the resources ara.
 				document.getElementById("resource").innerHTML = message.content.replace(`${myId}WEBINT_RESOURCE`, "");
-			} else if (doesContain(client.user.tag, message)) {//If it contains your tag, ("<username><#1234>") it is your stats. Put it in the stats area.
+			} else if (message.content.includes(client.user.tag)) {//If it contains your tag, ("<username><#1234>") it is your stats. Put it in the stats area.
 				document.getElementById("stats").innerHTML = "Your Stats:\n" + message.content;
-			} else if (doesContain("List of countries:", message)){
+			} else if (message.content.includes("List of countries:")){
 				document.getElementById("list").innerHTML = message.content;
 			}
 		}
@@ -56,9 +56,6 @@
 			generalChannel.send("!resource " + client.user.toString());
 			generalChannel.send("!force " + client.user.toString());
 		}, 1000);
-	}
-	function doesContain(what,msg){
-		return msg.content.includes(what);
 	}
 	document.getElementById("warall").onclick = function () {
 		war("all");//Most of these are self explanatory, this one wars all.
