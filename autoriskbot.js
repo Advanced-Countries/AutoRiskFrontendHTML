@@ -16,6 +16,76 @@
     generalChannel.send("!stats");
     generalChannel.send("!force webInt");
     generalChannel.send("!resource webInt");
+    document.getElementById("upd8").onclick = updateChat();
+    function updateChat() {
+      var tmp = "";
+      var messages = client.guilds
+        .find("id", "386688984845123585")
+        .channels.find("name", "general").messages;
+      setTimeout(() => {
+        last5 = messages.last(5);
+        last5.forEach(msg => {
+          tmp += `[${msg.author.tag}] ${msg.content}\n`;
+        });
+        document.getElementById("chatbox").innerHTML = tmp;
+      }, 100);
+    }
+    document.getElementById("upd81").onclick = updateSpam();
+    function updateSpam() {
+      var tmp = "";
+      var messages = client.guilds
+        .find("id", "386688984845123585")
+        .channels.find("name", "spam").messages;
+      setTimeout(() => {
+        last5 = messages.last(5);
+        last5.forEach(msg => {
+          tmp += `[${msg.author.tag}] ${msg.content}\n`;
+        });
+        document.getElementById("spambox").innerHTML = tmp;
+      }, 100);
+    }
+
+    document.getElementById("sendBtn").onclick = function() {
+      var sendTo = client.guilds
+        .find("id", "386688984845123585")
+        .channels.find("name", "general");
+      sendTo.send(document.getElementById("chatTxt").value);
+      document.getElementById("chatTxt").value = "";
+      setTimeout(function() {
+        var tmp = "";
+        var messages = client.guilds
+          .find("id", "386688984845123585")
+          .channels.find("name", "general").messages;
+        setTimeout(() => {
+          last5 = messages.last(5);
+          last5.forEach(msg => {
+            tmp += `[${msg.author.tag}] ${msg.content}\n`;
+          });
+          document.getElementById("chatbox").innerHTML = tmp;
+        }, 100);
+      }, 100);
+    };
+
+    document.getElementById("sendBtn1").onclick = function() {
+      var sendTo = client.guilds
+        .find("id", "386688984845123585")
+        .channels.find("name", "spam");
+      sendTo.send(document.getElementById("chatTxt1").value);
+      document.getElementById("chatTxt1").value = "";
+      setTimeout(function() {
+        var tmp = "";
+        var messages = client.guilds
+          .find("id", "386688984845123585")
+          .channels.find("name", "spam").messages;
+        setTimeout(() => {
+          last5 = messages.last(5);
+          last5.forEach(msg => {
+            tmp += `[${msg.author.tag}] ${msg.content}\n`;
+          });
+          document.getElementById("spambox").innerHTML = tmp;
+        });
+      }, 100);
+    };
   });
   client.on("debug", console.log); //Logs what the bot is doing.
   client.on("error", console.error);
@@ -170,75 +240,5 @@
     generalChannel.send("!stats webInt");
     generalChannel.send("!force webInt");
     generalChannel.send("!resource webInt");
-  };
-  document.getElementById("upd8").onclick = updateChat();
-  function updateChat() {
-    var tmp = "";
-    var messages = client.guilds
-      .find("id", "386688984845123585")
-      .channels.find("name", "general").messages;
-    setTimeout(() => {
-      last5 = messages.last(5);
-      last5.forEach(msg => {
-        tmp += `[${msg.author.tag}] ${msg.content}\n`;
-      });
-      document.getElementById("chatbox").innerHTML = tmp;
-    }, 100);
-  }
-  document.getElementById("upd81").onclick = updateSpam();
-  function updateSpam() {
-    var tmp = "";
-    var messages = client.guilds
-      .find("id", "386688984845123585")
-      .channels.find("name", "spam").messages;
-    setTimeout(() => {
-      last5 = messages.last(5);
-      last5.forEach(msg => {
-        tmp += `[${msg.author.tag}] ${msg.content}\n`;
-      });
-      document.getElementById("spambox").innerHTML = tmp;
-    }, 100);
-  }
-
-  document.getElementById("sendBtn").onclick = function() {
-    var sendTo = client.guilds
-      .find("id", "386688984845123585")
-      .channels.find("name", "general");
-    sendTo.send(document.getElementById("chatTxt").value);
-    document.getElementById("chatTxt").value = "";
-    setTimeout(function() {
-      var tmp = "";
-      var messages = client.guilds
-        .find("id", "386688984845123585")
-        .channels.find("name", "general").messages;
-      setTimeout(() => {
-        last5 = messages.last(5);
-        last5.forEach(msg => {
-          tmp += `[${msg.author.tag}] ${msg.content}\n`;
-        });
-        document.getElementById("chatbox").innerHTML = tmp;
-      }, 100);
-    }, 100);
-  };
-
-  document.getElementById("sendBtn1").onclick = function() {
-    var sendTo = client.guilds
-      .find("id", "386688984845123585")
-      .channels.find("name", "spam");
-    sendTo.send(document.getElementById("chatTxt1").value);
-    document.getElementById("chatTxt1").value = "";
-    setTimeout(function() {
-      var tmp = "";
-      var messages = client.guilds
-        .find("id", "386688984845123585")
-        .channels.find("name", "spam").messages;
-      setTimeout(() => {
-        last5 = messages.last(5);
-        last5.forEach(msg => {
-          tmp += `[${msg.author.tag}] ${msg.content}\n`;
-        });
-        document.getElementById("spambox").innerHTML = tmp;
-      });
-    }, 100);
   };
 })();
