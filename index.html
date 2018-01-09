@@ -6,14 +6,12 @@
     <link href="style.css" rel="stylesheet">
     <!--Custom styling for navbar and bg color-->
     <script type="text/javascript">
-        function showSpoiler(obj) {
-            var inner = obj.parentNode.getElementsByTagName("div")[0];
-            if (inner.style.display == "none")
-                inner.style.display = "";
-            else
-                inner.style.display = "none";
-        }
-    </script>
+    function showSpoiler(obj) {
+  var inner = obj.parentNode.getElementsByTagName("div")[0];
+  if (inner.style.display == "none") inner.style.display = "";
+  else inner.style.display = "none";
+}
+</script>
     <!--Spoiler script to show/hide map and others-->
 </head>
 
@@ -92,14 +90,14 @@
         </div>
 
         <div class="rightfloat">
-            <div id="chatbox" class="rightfloat" style="height:200px;width:300px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+            <div id="chatbox" class="rightfloat textBox" style="height:200px;width:300px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
                 Placeholder for chat
             </div><br>
             <input type="text" style="display: inline;" value="Chat Here - General ^" id="chatTxt">
             <button id="sendBtn" style="display: inline;">Send</button>
             <button id="upd8" style="display: inline;">Upd8 Chat</button>
             <br>
-            <div id="spambox" class="rightfloat" style="height:200px;width:300px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+            <div id="spambox" class="rightfloat textBox" style="height:200px;width:300px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
                 Placeholder for spam
             </div><br>
             <input type="text" style="display: inline;" value="Chat Here - Spam ^ " id="chatTxt1">
