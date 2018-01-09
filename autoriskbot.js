@@ -167,9 +167,9 @@
       .channels.find("name", "general").messages;
     setTimeout(() => {
       last5 = messages.last(5);
-      for (var msg in last5) {
+      last5.forEach(msg => {
         tmp += `[${msg.author.tag}] ${msg.content}\n`;
-      }
+      });
       document.getElementById("chatbox").innerHTML = tmp;
     }, 100);
   };
@@ -180,11 +180,11 @@
       .channels.find("name", "spam").messages;
     setTimeout(() => {
       last5 = messages.last(5);
-      for (var msg in last5) {
+      last5.forEach(msg => {
         tmp += `[${msg.author.tag}] ${msg.content}\n`;
-      }
+      });
       document.getElementById("spambox").innerHTML = tmp;
-    });
+    }, 100);
   };
 
   document.getElementById("sendBtn").onclick = function() {
@@ -199,9 +199,9 @@
         .channels.find("name", "general").messages;
       setTimeout(() => {
         last5 = messages.last(5);
-        for (var msg in last5) {
+        last5.forEach(msg => {
           tmp += `[${msg.author.tag}] ${msg.content}\n`;
-        }
+        });
         document.getElementById("chatbox").innerHTML = tmp;
       }, 100);
     }, 100);
@@ -219,9 +219,9 @@
         .channels.find("name", "spam").messages;
       setTimeout(() => {
         last5 = messages.last(5);
-        for (var msg in last5) {
+        last5.forEach(msg => {
           tmp += `[${msg.author.tag}] ${msg.content}\n`;
-        }
+        });
         document.getElementById("spambox").innerHTML = tmp;
       });
     }, 100);
