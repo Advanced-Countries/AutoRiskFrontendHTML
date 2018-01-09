@@ -21,8 +21,19 @@
   client.on("error", console.error);
   client.ws.on("close", event => console.log("[CLIENT] Disconnect!", event)); //Logs out.
   client.on("message", message => {
-    //When it detects a message.
+    if (message.channel.id == "387583736213929985") {
+      //Updates chat on new message.
+      updateChat();
+    }
+    if (
+      message.channel.id == "386736565356986368" &&
+      message.author.id != "386688418224275456"
+    ) {
+      //Updates spam on new message, except if it is actually spam.
+      updateSpam();
+    }
     if (message.author.id === "386688418224275456") {
+      //When it detects a message.
       //Only check messages if the author is the cartographer.
       console.log(message.content); //Logs the message for simple debugging.
       if (message.content === "Fullmap:") {
@@ -160,7 +171,8 @@
     generalChannel.send("!force webInt");
     generalChannel.send("!resource webInt");
   };
-  document.getElementById("upd8").onclick = function() {
+  document.getElementById("upd8").onclick = updateChat();
+  function updateChat() {
     var tmp = "";
     var messages = client.guilds
       .find("id", "386688984845123585")
@@ -172,8 +184,9 @@
       });
       document.getElementById("chatbox").innerHTML = tmp;
     }, 100);
-  };
-  document.getElementById("upd81").onclick = function() {
+  }
+  document.getElementById("upd81").onclick = updateSpam();
+  function updateSpam() {
     var tmp = "";
     var messages = client.guilds
       .find("id", "386688984845123585")
@@ -185,7 +198,7 @@
       });
       document.getElementById("spambox").innerHTML = tmp;
     }, 100);
-  };
+  }
 
   document.getElementById("sendBtn").onclick = function() {
     var sendTo = client.guilds
