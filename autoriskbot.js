@@ -1,4 +1,33 @@
 /*jshint esversion: 6 */
+
+function updateSpam() {
+  var tmp = "";
+  var messages = client.guilds
+    .find("id", "386688984845123585")
+    .channels.find("name", "spam").messages;
+  setTimeout(() => {
+    last5 = messages.last(5);
+    last5.forEach(msg => {
+      tmp += `[${msg.author.tag}] ${msg.content}\n`;
+    });
+    document.getElementById("spambox").innerHTML = tmp;
+  }, 100);
+}
+
+function updateChat() {
+  var tmp = "";
+  var messages = client.guilds
+    .find("id", "386688984845123585")
+    .channels.find("name", "general").messages;
+  setTimeout(() => {
+    last5 = messages.last(5);
+    last5.forEach(msg => {
+      tmp += `[${msg.author.tag}] ${msg.content}\n`;
+    });
+    document.getElementById("chatbox").innerHTML = tmp;
+  }, 100);
+}
+
 (() => {
   const client = (window.client = new Discord.Client()); //Makes the discord client.
   client.on("ready", () => {
@@ -16,35 +45,6 @@
     generalChannel.send("!stats");
     generalChannel.send("!force webInt");
     generalChannel.send("!resource webInt");
-
-    function updateSpam() {
-      var tmp = "";
-      var messages = client.guilds
-        .find("id", "386688984845123585")
-        .channels.find("name", "spam").messages;
-      setTimeout(() => {
-        last5 = messages.last(5);
-        last5.forEach(msg => {
-          tmp += `[${msg.author.tag}] ${msg.content}\n`;
-        });
-        document.getElementById("spambox").innerHTML = tmp;
-      }, 100);
-    }
-
-    function updateChat() {
-      var tmp = "";
-      var messages = client.guilds
-        .find("id", "386688984845123585")
-        .channels.find("name", "general").messages;
-      setTimeout(() => {
-        last5 = messages.last(5);
-        last5.forEach(msg => {
-          tmp += `[${msg.author.tag}] ${msg.content}\n`;
-        });
-        document.getElementById("chatbox").innerHTML = tmp;
-      }, 100);
-    }
-
     document.getElementById("upd8").onclick = updateChat();
     document.getElementById("upd81").onclick = updateSpam();
     document.getElementById("sendBtn").onclick = function() {
