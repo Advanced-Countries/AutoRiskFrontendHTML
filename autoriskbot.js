@@ -205,6 +205,7 @@
       .find("id", "386688984845123585")
       .channels.find("name", "general");
     sendTo.send(document.getElementById("chatTxt").value);
+    document.getElementById("chatTxt").value = "";
     setTimeout(function() {
       var tmp = "";
       var messages = client.guilds
@@ -225,6 +226,7 @@
       .find("id", "386688984845123585")
       .channels.find("name", "spam");
     sendTo.send(document.getElementById("chatTxt1").value);
+    document.getElementById("chatTxt1").value = "";
     setTimeout(function() {
       var tmp = "";
       var messages = client.guilds
