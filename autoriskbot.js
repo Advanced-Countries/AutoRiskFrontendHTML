@@ -162,26 +162,26 @@
   };
   document.getElementById("upd8").onclick = function() {
     var tmp = "";
-    var messages = client.guilds
+    client.guilds
       .find("id", "386688984845123585")
       .channels.find("name", "general")
-      .messages.then(() => {
+      .messages.then(messages => {
         last5 = messages.last(5);
         for (var msg in last5) {
-          tmp += `[${msg.author.tag}] ${msg.author.content}\n`;
+          tmp += `[${msg.author.tag}] ${msg.content}\n`;
         }
         document.getElementById("chatbox").innerHTML = tmp;
       });
   };
   document.getElementById("upd81").onclick = function() {
     var tmp = "";
-    var messages = client.guilds
+    client.guilds
       .find("id", "386688984845123585")
       .channels.find("name", "spam")
-      .messages.then(() => {
+      .messages.then(messages => {
         last5 = messages.last(5);
         for (var msg in last5) {
-          tmp += `[${msg.author.tag}] ${msg.author.content}\n`;
+          tmp += `[${msg.author.tag}] ${msg.content}\n`;
         }
         document.getElementById("spambox").innerHTML = tmp;
       });
@@ -194,13 +194,13 @@
     sendTo.send(document.getElementById("chatTxt").value);
     setTimeout(function() {
       var tmp = "";
-      var messages = client.guilds
+      client.guilds
         .find("id", "386688984845123585")
         .channels.find("name", "general")
-        .messages.then(() => {
+        .messages.then(messages => {
           last5 = messages.last(5);
           for (var msg in last5) {
-            tmp += `[${msg.author.tag}] ${msg.author.content}\n`;
+            tmp += `[${msg.author.tag}] ${msg.content}\n`;
           }
           document.getElementById("chatbox").innerHTML = tmp;
         });
@@ -214,13 +214,13 @@
     sendTo.send(document.getElementById("chatTxt1").value);
     setTimeout(function() {
       var tmp = "";
-      var messages = client.guilds
+      client.guilds
         .find("id", "386688984845123585")
         .channels.find("name", "spam")
-        .messages.then(() => {
+        .messages.then(messages => {
           last5 = messages.last(5);
           for (var msg in last5) {
-            tmp += `[${msg.author.tag}] ${msg.author.content}\n`;
+            tmp += `[${msg.author.tag}] ${msg.content}\n`;
           }
           document.getElementById("spambox").innerHTML = tmp;
         });
