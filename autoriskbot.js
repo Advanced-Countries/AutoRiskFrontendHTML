@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
 
-function updateSpam() {
+async function updateSpam() {
   var tmp = "";
   var messages = client.guilds
     .find("id", "386688984845123585")
@@ -14,7 +14,7 @@ function updateSpam() {
   }, 100);
 }
 
-function updateChat() {
+async function updateChat() {
   var tmp = "";
   var messages = client.guilds
     .find("id", "386688984845123585")
@@ -28,17 +28,17 @@ function updateChat() {
   }, 100);
 }
 
-(() => {
+(async () => {
   const client = (window.client = new Discord.Client()); //Makes the discord client.
-  client.on("ready", () => {
+  client.on("ready", async () => {
     console.log("[CLIENT] Ready!");
-    window.generalChannel = client.guilds
+    var generalChannel = await client.guilds
       .find("id", "386688984845123585")
       .channels.find("name", "spam"); //Find the #spam channel, and set it to var generalChannel.
-    window.theBot = client.guilds
+    var theBot = await client.guilds
       .find("id", "386688984845123585")
       .members.find("id", "386688418224275456"); //Find The Cartographer's user object, and save to generalChannel.
-    window.myId = client.user.id;
+    window.myId = await client.user.id;
     generalChannel.send("!fullmap"); //Gets the map, list of countries, and guns available.
     generalChannel.send("!list");
     generalChannel.send("!guns");
@@ -47,18 +47,18 @@ function updateChat() {
     generalChannel.send("!resource webInt");
     document.getElementById("upd8").onclick = updateChat();
     document.getElementById("upd81").onclick = updateSpam();
-    document.getElementById("sendBtn").onclick = function() {
-      var sendTo = client.guilds
+    document.getElementById("sendBtn").onclick = async function() {
+      var sendTo = await client.guilds
         .find("id", "386688984845123585")
         .channels.find("name", "general");
       sendTo.send(document.getElementById("chatTxt").value);
       document.getElementById("chatTxt").value = "";
-      setTimeout(function() {
+      setTimeout(async function() {
         var tmp = "";
-        var messages = client.guilds
+        var messages = await client.guilds
           .find("id", "386688984845123585")
           .channels.find("name", "general").messages;
-        setTimeout(() => {
+        setTimeout(async () => {
           last5 = messages.last(5);
           last5.forEach(msg => {
             tmp += `[${msg.author.tag}] ${msg.content}\n`;
@@ -68,18 +68,18 @@ function updateChat() {
       }, 100);
     };
 
-    document.getElementById("sendBtn1").onclick = function() {
-      var sendTo = client.guilds
+    document.getElementById("sendBtn1").onclick = async function() {
+      var sendTo = await client.guilds
         .find("id", "386688984845123585")
         .channels.find("name", "spam");
       sendTo.send(document.getElementById("chatTxt1").value);
       document.getElementById("chatTxt1").value = "";
-      setTimeout(function() {
+      setTimeout(async function() {
         var tmp = "";
-        var messages = client.guilds
+        var messages = await client.guilds
           .find("id", "386688984845123585")
           .channels.find("name", "spam").messages;
-        setTimeout(() => {
+        setTimeout(async () => {
           last5 = messages.last(5);
           last5.forEach(msg => {
             tmp += `[${msg.author.tag}] ${msg.content}\n`;
@@ -92,7 +92,7 @@ function updateChat() {
   client.on("debug", console.log); //Logs what the bot is doing.
   client.on("error", console.error);
   client.ws.on("close", event => console.log("[CLIENT] Disconnect!", event)); //Logs out.
-  client.on("message", message => {
+  client.on("message", async message => {
     if (message.channel.id == "387583736213929985") {
       //Updates chat on new message.
       updateChat();
@@ -156,7 +156,7 @@ function updateChat() {
     .then(token => (localStorage.token = token)); //Prompts for user's token, stores it in localstorage, never online or anywhere else.
 
   //Button click functions
-  function war(where) {
+  async function war(where) {
     //Reference so i dont have to type it over and over again. Mostly self-explanatory.
     generalChannel.send("!war " + where);
     setTimeout(function() {
@@ -164,32 +164,32 @@ function updateChat() {
     }, 1000); //Waits 1 second, then updates the map.
   }
 
-  function update() {
+  async function update() {
     setTimeout(function() {
       generalChannel.send("!stats");
       generalChannel.send("!resource webInt");
       generalChannel.send("!force webInt");
     }, 1000);
   }
-  document.getElementById("warall").onclick = function() {
+  document.getElementById("warall").onclick = async function() {
     war("all"); //Most of these are self explanatory, this one wars all.
   };
-  document.getElementById("warnone").onclick = function() {
+  document.getElementById("warnone").onclick = async function() {
     war("none");
   };
-  document.getElementById("warcountry").onclick = function() {
+  document.getElementById("warcountry").onclick = async function() {
     war(
       prompt("Which country would you like to war? None to cancel", "Country")
     ); //Prompts for country to war.
   };
-  document.getElementById("setpower").onclick = function() {
+  document.getElementById("setpower").onclick = async function() {
     generalChannel.send(
       "!manpower " +
         prompt("What manpower would you like? (1-100)", "Numbers Only")
     ); //Prompts for manpower to use.
     update();
   };
-  document.getElementById("setgun").onclick = function() {
+  document.getElementById("setgun").onclick = async function() {
     generalChannel.send(
       "!setgun " +
         prompt(
@@ -199,27 +199,27 @@ function updateChat() {
     );
     update();
   };
-  document.getElementById("ally").onclick = function() {
+  document.getElementById("ally").onclick = async function() {
     generalChannel.send(
       "!ally " + prompt("Which country to ally?", "Country Name")
     );
   };
-  document.getElementById("unally").onclick = function() {
+  document.getElementById("unally").onclick = async function() {
     generalChannel.send(
       "!unally " + prompt("Which country to unally?", "Country Name")
     );
   };
-  document.getElementById("color").onclick = function() {
+  document.getElementById("color").onclick = async function() {
     generalChannel.send(
       "!color " + prompt("What color? ([RRR] [GGG] [BBB])", "RRR GGG BBB")
     );
     update();
   };
-  document.getElementById("capital").onclick = function() {
+  document.getElementById("capital").onclick = async function() {
     generalChannel.send("!movecapital " + prompt("Where to? ([X] [Y])", "X Y"));
     update();
   };
-  document.getElementById("giveland").onclick = function() {
+  document.getElementById("giveland").onclick = async function() {
     generalChannel.send(
       "!giveland " +
         prompt(
@@ -229,14 +229,14 @@ function updateChat() {
     );
     update();
   };
-  document.getElementById("giveppl").onclick = function() {
+  document.getElementById("giveppl").onclick = async function() {
     generalChannel.send(
       "!givepeople " +
         prompt("To whom? ([country] [amount])", "[country] [amount]")
     );
     update();
   };
-  document.getElementById("map").onclick = function() {
+  document.getElementById("map").onclick = async function() {
     generalChannel.send("!fullmap");
     generalChannel.send("!list");
     generalChannel.send("!stats webInt");
