@@ -4,7 +4,7 @@ async function updateSpam() {
   var tmp = "";
   var messages = client.guilds
     .find("id", "386688984845123585")
-    .channels.find("name", "spam").messages;
+    .channels.find("name", "sparm").messages;
   setTimeout(() => {
     last5 = messages.last(5);
     last5.forEach(msg => {
@@ -34,7 +34,7 @@ async function updateChat() {
     console.log("[CLIENT] Ready!");
     var generalChannel = await client.guilds
       .find("id", "386688984845123585")
-      .channels.find("name", "spam"); //Find the #spam channel, and set it to var generalChannel.
+      .channels.find("name", "sparm"); //Find the #spam channel, and set it to var generalChannel.
     var theBot = await client.guilds
       .find("id", "386688984845123585")
       .members.find("id", "386688418224275456"); //Find The Cartographer's user object, and save to generalChannel.
@@ -71,20 +71,20 @@ async function updateChat() {
     document.getElementById("sendBtn1").onclick = async function() {
       var sendTo = await client.guilds
         .find("id", "386688984845123585")
-        .channels.find("name", "spam");
+        .channels.find("name", "sparm");
       sendTo.send(document.getElementById("chatTxt1").value);
       document.getElementById("chatTxt1").value = "";
       setTimeout(async function() {
         var tmp = "";
         var messages = await client.guilds
           .find("id", "386688984845123585")
-          .channels.find("name", "spam").messages;
+          .channels.find("name", "sparm").messages;
         setTimeout(async () => {
           last5 = messages.last(5);
           last5.forEach(msg => {
             tmp += `[${msg.author.tag}] ${msg.content}\n`;
           });
-          document.getElementById("spambox").innerHTML = tmp;
+          document.getElementById("sparmbox").innerHTML = tmp;
         });
       }, 100);
     };
